@@ -1,1 +1,0 @@
-# thinkgym-lab.github.io
