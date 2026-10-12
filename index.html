@@ -1,186 +1,387 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ThinkGym</title>
-  <meta name="description" content="ThinkGym helps you build stronger thinking habits through short, guided challenges." />
-  <style>
-    :root {
-      --bg: #0b0f17;
-      --card: rgba(255, 255, 255, 0.06);
-      --text: #eaf0ff;
-      --muted: rgba(234, 240, 255, 0.72);
-      --border: rgba(255, 255, 255, 0.12);
-      --shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(900px 500px at 20% 10%, rgba(110, 168, 255, 0.20), transparent 55%),
-                  radial-gradient(700px 450px at 80% 30%, rgba(170, 110, 255, 0.16), transparent 55%),
-                  var(--bg);
-      min-height: 100vh;
-    }
-    a { color: inherit; text-decoration: none; }
-    header {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 24px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(110,168,255,1), rgba(170,110,255,1));
-      box-shadow: 0 0 0 6px rgba(110,168,255,0.12);
-    }
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 24px 20px 70px;
-    }
-    .hero {
-      margin-top: 22px;
-      padding: 34px 28px;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(30px, 5vw, 46px);
-      line-height: 1.08;
-      letter-spacing: -0.5px;
-    }
-    p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.6;
-      max-width: 60ch;
-    }
-    .cta-row {
-      margin-top: 18px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      user-select: none;
-    }
-    .btn.primary {
-      border: none;
-      background: linear-gradient(135deg, rgba(110,168,255,1), rgba(170,110,255,1));
-      box-shadow: 0 12px 30px rgba(110,168,255,0.18);
-    }
-    .btn:focus { outline: 2px solid rgba(110,168,255,0.65); outline-offset: 2px; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThinkGym — Delegate the work. Not the thinking.</title>
+<meta name="description" content="ThinkGym is a thinking gym for the AI age: a coach that helps you reason through your own real problems, alone or with others, and never does the thinking for you.">
+<link rel="canonical" href="https://thinkgym.ai/">
+<meta name="theme-color" content="#f5f0e6">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='8' y='4' width='48' height='4.5' rx='2.25' fill='%231b1915'/%3E%3Crect x='8' y='55.5' width='48' height='4.5' rx='2.25' fill='%231b1915'/%3E%3Cpath d='M8 11.5H22C22 17 24.5 21 27 24c1.6 2 3 4 3.6 6.2.3 1-.4 1.6-1.3 1.6h-1.2l.6 2.4c.1.5-.4.9-.4 1.4s.6.9.4 1.5l-.4 1.4c-.2.8.4 1.4.4 2.3 0 .8-.6 1.3-1.4 1.6C24.8 43.8 22 47.5 22 52.5H8Z' fill='%231b1915'/%3E%3Cpath d='M56 11.5H42l-5 12.5-3.6 7.8h2.5l-.7 2.6.7 1.6-.7 1.6.7 2.4-.4 2.2-2.4 1.8L42 52.5H56Z' fill='%237a4f1c'/%3E%3Cpath d='M27.6 24.5h8.8L32 30.6Z' fill='%23d9b58a'/%3E%3Cpath d='M24.6 52.5c1.4-4.2 4-6.6 7.4-6.6s6 2.4 7.4 6.6Z' fill='%23d9b58a'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ThinkGym">
+<meta property="og:url" content="https://thinkgym.ai/">
+<meta property="og:title" content="ThinkGym — Delegate the work. Not the thinking.">
+<meta property="og:description" content="A coach that helps you reason through your own real problems, and never does the thinking for you.">
+<meta property="og:image" content="https://thinkgym.ai/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ThinkGym. Delegate the work. Not the thinking.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ThinkGym — Delegate the work. Not the thinking.">
+<meta name="twitter:description" content="A coach that helps you reason through your own real problems, and never does the thinking for you.">
+<meta name="twitter:image" content="https://thinkgym.ai/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ThinkGym","url":"https://thinkgym.ai/","email":"ops@thinkgym.ai","slogan":"Delegate the work. Not the thinking."}</script>
+<style>
+:root{
+  --paper:#f5f0e6;--paper-2:#ede6d7;--ink:#1b1915;--ink-2:#46413a;--muted:#655e52;--rule:#d6ccb9;
+  --accent:#7a4f1c;
+  --night:#15130f;--night-ink:#f1ebde;--night-muted:#bdb4a4;--night-rule:#38332b;--gold:#d9b58a;
+  --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  --wrap:1120px;--pad:clamp(20px,4vw,40px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+svg{display:block;max-width:100%}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.night :focus-visible{outline-color:var(--gold)}
+.skip{position:absolute;left:12px;top:-64px;background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:6px;z-index:10;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.015em;text-wrap:balance}
+p{margin:0 0 1em}
+.label{font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+.night .label{color:var(--gold)}
+section{padding:clamp(72px,10vw,120px) 0}
+.btn{display:inline-flex;align-items:center;gap:.55em;padding:14px 22px;border-radius:999px;font:600 15px/1 var(--sans);text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--paper);transition:background .15s,border-color .15s,color .15s}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn svg{width:16px;height:16px}
+.night .btn{background:var(--night-ink);border-color:var(--night-ink);color:var(--night)}
+.night .btn:hover{background:var(--gold);border-color:var(--gold);color:var(--night)}
 
-    .grid {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .card {
-      padding: 16px 16px 14px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: var(--card);
-    }
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 14px;
-      letter-spacing: 0.2px;
-    }
-    .card p {
-      font-size: 13px;
-      line-height: 1.55;
-      max-width: 100%;
-    }
-    footer {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 18px 20px 26px;
-      color: rgba(234, 240, 255, 0.55);
-      font-size: 12px;
-      text-align: center;
-    }
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
+/* header */
+.top{border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:400 22px/1 var(--serif);letter-spacing:-.01em}
+.brand svg{width:30px;height:30px}
+.top nav ul{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
+.top nav a{font:500 15px/1 var(--sans);text-decoration:none;color:var(--ink-2)}
+.top nav a:hover{color:var(--accent)}
+.top nav .btn{padding:11px 18px;font-size:14px;color:var(--paper)}
+.top nav .btn:hover{color:#fff}
+
+/* hero */
+.hero{padding:clamp(64px,10vw,128px) 0 clamp(56px,8vw,96px)}
+.hero .label{margin-bottom:28px}
+.hero h1{font-size:clamp(2.6rem,1.1rem + 6.4vw,6.4rem);line-height:.98;letter-spacing:-.028em;max-width:10.2em;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);margin-top:clamp(40px,5vw,64px);align-items:start}
+.lede{font:400 clamp(1.18rem,1rem + .7vw,1.45rem)/1.5 var(--serif);color:var(--ink-2);max-width:31em;margin-bottom:32px}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.cta .note{font-size:14px;color:var(--muted);margin:0}
+.facts{margin:0;border-top:1px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:7.5em 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.facts dt{font:500 11.5px/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;font-size:15.5px;line-height:1.5}
+
+/* why + modes */
+.why{background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:clamp(24px,5vw,72px)}
+.statement{font:400 clamp(1.6rem,1rem + 1.9vw,2.45rem)/1.25 var(--serif);letter-spacing:-.012em;margin:0 0 .7em;max-width:24em}
+.statement + p{font-size:18px;color:var(--ink-2);max-width:38em}
+.modes{list-style:none;margin:clamp(40px,5vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.modes li{padding:28px 28px 8px 0}
+.modes li + li{padding-left:28px;border-left:1px solid var(--rule)}
+.modes svg{width:56px;height:56px;margin-bottom:22px}
+.modes h3{font-size:1.55rem;line-height:1.15;margin-bottom:10px}
+.modes p{color:var(--ink-2);margin:0;max-width:22em}
+
+/* principles */
+.principles .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;margin-bottom:clamp(36px,5vw,56px)}
+.principles h2,.products h2{font-size:clamp(2rem,1.2rem + 2.6vw,3.2rem);line-height:1.06;max-width:16ch;margin-top:16px}
+.principles .head p{max-width:30em;color:var(--ink-2);margin:0}
+.plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);counter-reset:p}
+.plist li{counter-increment:p;border-top:1px solid var(--ink);padding:20px 0 36px}
+.plist li::before{content:"0" counter(p);display:block;font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--accent);margin-bottom:16px}
+.plist h3{font-size:1.4rem;line-height:1.2;margin-bottom:10px}
+.plist p{color:var(--ink-2);margin:0;font-size:16.5px}
+.meet{margin:clamp(24px,4vw,48px) 0 0;padding:clamp(32px,4vw,48px) 0 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:clamp(24px,5vw,72px)}
+.meet blockquote{margin:0;font:italic 400 clamp(1.5rem,1rem + 1.7vw,2.3rem)/1.3 var(--serif);letter-spacing:-.01em;max-width:26em}
+
+/* products */
+.products{background:var(--night);color:var(--night-ink)}
+.products h2{max-width:18ch}
+.products .intro{color:var(--night-muted);max-width:34em;margin:20px 0 0;font-size:18px}
+.prod{display:grid;gap:clamp(20px,3vw,28px);margin-top:clamp(40px,5vw,64px)}
+.card{border:1px solid var(--night-rule);border-radius:20px;padding:clamp(26px,3.6vw,52px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.card.main{background:#1d1a15}
+.card .copy p:last-child{margin-bottom:0}
+.card .kicker{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}
+.tag{font:500 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--night);background:var(--gold);padding:7px 10px;border-radius:999px}
+.card h3{font-size:clamp(1.8rem,1.2rem + 1.4vw,2.5rem);line-height:1.08;margin-bottom:6px}
+.card .sub{font:italic 400 1.15rem/1.4 var(--serif);color:var(--gold);margin-bottom:18px}
+.card p{color:var(--night-muted)}
+.card p strong{color:var(--night-ink);font-weight:500}
+.card .art{display:flex;flex-direction:column;align-items:center}
+.room{width:100%;max-width:440px;height:auto}
+.rhythm{width:100%;max-width:340px;height:auto}
+.legend{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,auto);justify-content:center;gap:10px 28px;font:500 11.5px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--night-muted)}
+.legend li{display:flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%}
+.legend .k-you{background:var(--night-ink)}
+.legend .k-coach{border:1.5px dashed var(--gold)}
+.legend .k-q{width:10px;height:10px;border-radius:0;border:1.5px solid var(--night-ink);transform:rotate(45deg);margin:0 1px}
+.legend .k-notes{border-radius:2px;background:transparent;border:1.5px solid var(--night-muted)}
+.boundary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(40px,5vw,56px);padding-top:clamp(28px,3vw,36px);border-top:1px solid var(--night-rule)}
+.boundary h3{font-size:1.25rem;margin-bottom:8px}
+.boundary p{color:var(--night-muted);margin:0;max-width:30em}
+
+/* access */
+.access .box{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end}
+.access h2{font-size:clamp(2.2rem,1.2rem + 3.2vw,3.8rem);line-height:1.02;letter-spacing:-.022em;margin:16px 0 20px;max-width:13ch}
+.access p:not(.label){color:var(--ink-2);max-width:32em;font-size:18px}
+.access .side{border-top:1px solid var(--ink);padding-top:22px}
+.access .side .cta{margin-bottom:18px}
+.access .side p{font-size:15.5px;color:var(--muted);margin:0}
+.access .mail{font:400 1.4rem/1.3 var(--serif)}
+
+/* footer */
+footer{border-top:1px solid var(--rule);padding:32px 0 40px;font-size:14.5px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px}
+footer .brand{font-size:18px;color:var(--ink)}
+footer .brand svg{width:24px;height:24px}
+footer ul{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none;margin:0;padding:0}
+
+@media (max-width:960px){
+  .hero-grid,.access .box{grid-template-columns:1fr}
+  .split,.meet{grid-template-columns:1fr;gap:20px}
+  .plist{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{max-width:560px}
+  .card{grid-template-columns:1fr}
+  .card .art{align-items:flex-start}
+  .legend{justify-content:flex-start}
+}
+@media (max-width:760px){
+  .top nav li:not(.go){display:none}
+  .modes{grid-template-columns:1fr}
+  .modes li,.modes li + li{padding:26px 0;border-left:0;border-top:1px solid var(--rule);display:grid;grid-template-columns:56px 1fr;gap:0 20px}
+  .modes li:first-child{border-top:0}
+  .modes svg{margin:2px 0 0;grid-row:span 2}
+  .boundary{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  body{font-size:16.5px}
+  .plist{grid-template-columns:1fr}
+  .plist li{padding-bottom:28px}
+  .facts div{grid-template-columns:6.6em 1fr;gap:12px}
+  .card .kicker{flex-wrap:wrap}
+  .legend{grid-template-columns:1fr}
+  .cta .btn{width:100%;justify-content:center}
+  .top nav .btn{width:auto}
+}
+@media (prefers-reduced-motion:no-preference){
+  .orbit{animation:orbit 90s linear infinite;transform-origin:210px 150px}
+  @keyframes orbit{to{transform:rotate(360deg)}}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand" aria-label="ThinkGym">
-      <span class="dot" aria-hidden="true"></span>
-      <span>ThinkGym</span>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ThinkGym, home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="4" width="48" height="4.5" rx="2.25" fill="#1b1915"/><rect x="8" y="55.5" width="48" height="4.5" rx="2.25" fill="#1b1915"/><path d="M8 11.5H22C22 17 24.5 21 27 24c1.6 2 3 4 3.6 6.2.3 1-.4 1.6-1.3 1.6h-1.2l.6 2.4c.1.5-.4.9-.4 1.4s.6.9.4 1.5l-.4 1.4c-.2.8.4 1.4.4 2.3 0 .8-.6 1.3-1.4 1.6C24.8 43.8 22 47.5 22 52.5H8Z" fill="#1b1915"/><path d="M56 11.5H42l-5 12.5-3.6 7.8h2.5l-.7 2.6.7 1.6-.7 1.6.7 2.4-.4 2.2-2.4 1.8L42 52.5H56Z" fill="#7a4f1c"/><path d="M27.6 24.5h8.8L32 30.6Z" fill="#d9b58a"/><path d="M24.6 52.5c1.4-4.2 4-6.6 7.4-6.6s6 2.4 7.4 6.6Z" fill="#d9b58a"/></svg>
+      ThinkGym
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#why">Mission</a></li>
+        <li><a href="#principles">Principles</a></li>
+        <li><a href="#products">Products</a></li>
+        <li class="go"><a class="btn" href="mailto:ops@thinkgym.ai?subject=Request%20access%20to%20ThinkGym&amp;body=Hi%20ThinkGym%2C%0A%0AI%27d%20like%20early%20access.%0A%0ASomething%20I%27d%20like%20to%20think%20through%3A%0A">Request access</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="label">A thinking gym for the AI age</p>
+      <h1 id="hero-title">Delegate the work. <em>Not the thinking.</em></h1>
+      <div class="hero-grid">
+        <div>
+          <p class="lede">ThinkGym keeps people capable as AI does more of the work, by keeping learning in the loop. It is a coach for your own thinking: it helps you reason through real problems, alone or with others, and never does the thinking for you.</p>
+          <div class="cta">
+            <a class="btn" href="mailto:ops@thinkgym.ai?subject=Request%20access%20to%20ThinkGym&amp;body=Hi%20ThinkGym%2C%0A%0AI%27d%20like%20early%20access.%0A%0ASomething%20I%27d%20like%20to%20think%20through%3A%0A">Request access
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+            <p class="note">Early access, opening gradually.</p>
+          </div>
+        </div>
+        <dl class="facts" aria-label="ThinkGym at a glance">
+          <div><dt>What</dt><dd>A coach that helps you think, not an assistant that thinks for you</dd></div>
+          <div><dt>Products</dt><dd>Bring Your Own Question and Daily Quest</dd></div>
+          <div><dt>Stage</dt><dd>Working product, early access by request</dd></div>
+          <div><dt>Contact</dt><dd><a href="mailto:ops@thinkgym.ai">ops@thinkgym.ai</a></dd></div>
+        </dl>
+      </div>
     </div>
-    <a class="btn" href="#" aria-label="Learn more">Learn more</a>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero" aria-label="Hero">
-      <h1>Train your thinking like a skill.</h1>
-      <p>
-        ThinkGym is a simple place to practice clearer reasoning through short, guided challenges.
-        Work solo or with others, build streaks and achievements, and keep improving—one session at a time.
-      </p>
-
-      <div class="cta-row" role="group" aria-label="Calls to action">
-        <a class="btn primary" href="#" aria-label="Get started">Get started</a>
-        <a class="btn" href="#" aria-label="See how it works">See how it works</a>
-      </div>
-
-      <div class="grid" aria-label="Highlights">
-        <div class="card">
-          <h3>Short and focused</h3>
-          <p>Quick sessions designed to strengthen attention and decision-making without feeling like homework.</p>
-        </div>
-        <div class="card">
-          <h3>Guided, not graded</h3>
-          <p>Get helpful prompts that nudge you toward better reasoning—without overwhelming complexity.</p>
-        </div>
-        <div class="card">
-          <h3>Progress you can feel</h3>
-          <p>Build habits with streaks and achievements that reward clarity, curiosity, and consistency.</p>
+  <section class="why" id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="split">
+        <h2 class="label" id="why-title">01 · Why we exist</h2>
+        <div>
+          <p class="statement">We will hand more and more of our work to AI. That is mostly good. But delegating well depends on still being able to frame a problem, weigh what you are told, and make the call yourself.</p>
+          <p>ThinkGym trains that ability in three modes.</p>
         </div>
       </div>
-    </section>
-  </main>
+      <ul class="modes">
+        <li>
+          <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="9" fill="#1b1915"/></svg>
+          <h3>On your own</h3>
+          <p>Frame the problem and commit to a position before any help arrives.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="23" fill="none" stroke="#7a4f1c" stroke-width="1.6" stroke-dasharray="4 4"/><circle cx="28" cy="28" r="9" fill="#1b1915"/></svg>
+          <h3>With help</h3>
+          <p>Work it through with a coach that asks rather than tells.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="36" cy="28" r="17" fill="none" stroke="#7a4f1c" stroke-width="1.6" stroke-dasharray="4 4"/><circle cx="12" cy="28" r="7" fill="#1b1915"/><path d="M21 28h6" stroke="#1b1915" stroke-width="1.6"/></svg>
+          <h3>About help</h3>
+          <p>Judge the help itself: when to rely on it, what to question, and when to set it aside.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-  <footer>
-    © <span id="y"></span> ThinkGym. All rights reserved.
-  </footer>
+  <section class="principles" id="principles" aria-labelledby="principles-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="label">02 · How the coach works</p>
+          <h2 id="principles-title">Six principles we build by.</h2>
+        </div>
+        <p>Every part of ThinkGym is held to these. They decide what the coach will and won’t do.</p>
+      </div>
+      <ol class="plist">
+        <li><h3>Commit first</h3><p>You state a position before any help. Thinking starts with you, not with a suggestion.</p></li>
+        <li><h3>Elicit, never suggest</h3><p>The coach draws your reasoning out with questions. It doesn’t slip its own answer in.</p></li>
+        <li><h3>Withhold solutions, not information</h3><p>Facts and context are fair game. The answer to your question is yours to reach.</p></li>
+        <li><h3>You never file anything</h3><p>You say and you judge. The machine does the bookkeeping.</p></li>
+        <li><h3>Difficulty is the product</h3><p>Delight is the delivery. The work stays hard; coming back to it should feel good.</p></li>
+        <li><h3>Measure what’s real</h3><p>We look at calibration and transfer: whether your confidence matches your accuracy, and whether the skill carries to new problems. Never self-report.</p></li>
+      </ol>
+      <figure class="meet">
+        <figcaption class="label">Where we meet</figcaption>
+        <blockquote><p>The coach never thinks for you, the machine does the bookkeeping, and the hard work is the point.</p></blockquote>
+      </figure>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <section class="products night" id="products" aria-labelledby="products-title">
+    <div class="wrap">
+      <p class="label">03 · Products</p>
+      <h2 id="products-title">A room for real problems, and a daily rep.</h2>
+      <p class="intro">Two ways to practise the same thing: thinking for yourself, with a coach that keeps you honest.</p>
+
+      <div class="prod">
+        <article class="card" aria-labelledby="byoq-title">
+          <div class="copy">
+            <div class="kicker"><span class="label">BYOQ</span></div>
+            <h3 id="byoq-title">Bring Your Own Question</h3>
+            <p class="sub">A thinking room for your own real problems.</p>
+            <p>Bring the question you’re actually facing: a job switch, a hard call at work. Think it through <strong>solo or as a group</strong>. The coach guides, challenges and facilitates, but it is <strong>never one of the thinkers</strong>. It keeps the notes, so you can pick up where you left off.</p>
+          </div>
+          <div class="art">
+            <svg class="room" viewBox="0 0 420 300" role="img" aria-labelledby="room-t">
+              <title id="room-t">Diagram: your question at the centre, the thinkers seated around it, the coach as a dashed ring around the whole room rather than among the thinkers, and the notes kept to one side.</title>
+              <g class="orbit"><circle cx="210" cy="150" r="128" fill="none" stroke="#d9b58a" stroke-width="1.5" stroke-dasharray="3 7"/><circle cx="210" cy="22" r="5" fill="#d9b58a"/></g>
+              <circle cx="210" cy="150" r="72" fill="none" stroke="#4a443a" stroke-width="1"/>
+              <g fill="#f1ebde">
+                <circle cx="210" cy="78" r="11"/><circle cx="278.5" cy="127.8" r="11"/><circle cx="252.3" cy="208.2" r="11"/><circle cx="167.7" cy="208.2" r="11"/><circle cx="141.5" cy="127.8" r="11"/>
+              </g>
+              <rect x="201" y="141" width="18" height="18" transform="rotate(45 210 150)" fill="none" stroke="#f1ebde" stroke-width="1.5"/>
+              <g fill="none" stroke="#bdb4a4" stroke-width="1.4"><rect x="362" y="214" width="40" height="52" rx="3"/><path d="M370 228h24M370 238h24M370 248h16"/></g>
+              <path d="M330 222c14-6 22-6 28-2" fill="none" stroke="#5a5246" stroke-width="1" stroke-dasharray="2 4"/>
+            </svg>
+            <ul class="legend" aria-hidden="true">
+              <li><i class="k-q"></i>Your question</li>
+              <li><i class="k-you"></i>You, or your group</li>
+              <li><i class="k-coach"></i>The coach, around the room</li>
+              <li><i class="k-notes"></i>Notes, kept for later</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" aria-labelledby="dq-title">
+          <div class="copy">
+            <div class="kicker"><span class="label">Daily practice</span></div>
+            <h3 id="dq-title">Daily Quest</h3>
+            <p class="sub">Short, fun practice that builds the habit.</p>
+            <p>A few minutes of hard, enjoyable reasoning each day. It keeps the skill in shape, and it <strong>teaches the coach how you reason</strong>, so its help fits you when the stakes are real.</p>
+          </div>
+          <div class="art">
+            <svg class="rhythm" viewBox="0 0 300 120" role="img" aria-labelledby="rhythm-t">
+              <title id="rhythm-t">Diagram: seven small daily repetitions in a row, each one a short loop.</title>
+              <g fill="none" stroke="#bdb4a4" stroke-width="1.4">
+                <circle cx="22" cy="60" r="14"/><circle cx="64" cy="60" r="14"/><circle cx="106" cy="60" r="14"/><circle cx="148" cy="60" r="14"/><circle cx="190" cy="60" r="14"/><circle cx="232" cy="60" r="14"/>
+              </g>
+              <g fill="#f1ebde"><circle cx="22" cy="60" r="4"/><circle cx="64" cy="60" r="4"/><circle cx="106" cy="60" r="4"/><circle cx="148" cy="60" r="4"/><circle cx="190" cy="60" r="4"/><circle cx="232" cy="60" r="4"/></g>
+              <circle cx="276" cy="60" r="14" fill="none" stroke="#d9b58a" stroke-width="1.6" stroke-dasharray="3 4"/><circle cx="276" cy="60" r="4" fill="#d9b58a"/>
+            </svg>
+          </div>
+        </article>
+      </div>
+
+      <div class="boundary">
+        <div>
+          <h3>What the coach won’t do</h3>
+          <p>It helps you think. It won’t take on the errands and chores that belong to general assistants, and it won’t hand you the answer to your own question.</p>
+        </div>
+        <div>
+          <h3>The long view</h3>
+          <p>Over time, we want ThinkGym to be where important decisions are reasoned through, and later revisited against how they actually turned out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="access" id="access" aria-labelledby="access-title">
+    <div class="wrap">
+      <div class="box">
+        <div>
+          <p class="label">04 · Early access</p>
+          <h2 id="access-title">Bring a question worth thinking about.</h2>
+          <p>ThinkGym is working and opening gradually. Tell us a little about what you’d like to think through, and we’ll be in touch.</p>
+        </div>
+        <div class="side">
+          <div class="cta">
+            <a class="btn" href="mailto:ops@thinkgym.ai?subject=Request%20access%20to%20ThinkGym&amp;body=Hi%20ThinkGym%2C%0A%0AI%27d%20like%20early%20access.%0A%0ASomething%20I%27d%20like%20to%20think%20through%3A%0A">Request access
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          </div>
+          <p>Everything else, from partnerships to press: <a class="mail" href="mailto:ops@thinkgym.ai">ops@thinkgym.ai</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ThinkGym, back to top">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="4" width="48" height="4.5" rx="2.25" fill="#1b1915"/><rect x="8" y="55.5" width="48" height="4.5" rx="2.25" fill="#1b1915"/><path d="M8 11.5H22C22 17 24.5 21 27 24c1.6 2 3 4 3.6 6.2.3 1-.4 1.6-1.3 1.6h-1.2l.6 2.4c.1.5-.4.9-.4 1.4s.6.9.4 1.5l-.4 1.4c-.2.8.4 1.4.4 2.3 0 .8-.6 1.3-1.4 1.6C24.8 43.8 22 47.5 22 52.5H8Z" fill="#1b1915"/><path d="M56 11.5H42l-5 12.5-3.6 7.8h2.5l-.7 2.6.7 1.6-.7 1.6.7 2.4-.4 2.2-2.4 1.8L42 52.5H56Z" fill="#7a4f1c"/><path d="M27.6 24.5h8.8L32 30.6Z" fill="#d9b58a"/><path d="M24.6 52.5c1.4-4.2 4-6.6 7.4-6.6s6 2.4 7.4 6.6Z" fill="#d9b58a"/></svg>
+      ThinkGym
+    </a>
+    <ul>
+      <li>© 2026 ThinkGym</li>
+      <li>thinkgym.ai</li>
+      <li><a href="mailto:ops@thinkgym.ai">ops@thinkgym.ai</a></li>
+    </ul>
+  </div>
+</footer>
 </body>
 </html>
